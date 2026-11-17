@@ -42,7 +42,6 @@
 12cce940e597e1d597f7063131acd19658d25e924904308bf719bde17b67e351  artifacts/zioncore-frequency-lab/src/hooks/use-toast.ts
 140e9db4eb3859e3c7487b743fcd39bb7beebaca394394dac6c61db19b96254d  lib/api-zod/src/generated/types/ownerFirebaseDiagnosticPermissionsStatus.ts
 141bbf8ac82ec90980e00d717b5574c4e5f08b3820fdaac293355b63b50f77b5  lib/api-zod/src/generated/types/ownerFirebaseDiagnosticCredentialSource.ts
-141e252fc3265c07d5452d8efb8d9523c945595b224590b72be52e137b380060  .github/workflows/zioncore-2nd-ci.yml
 146148e5ab6da45685349315e8ec6315e71c4325441d66aaca1a4e276c947f83  lib/api-zod/src/generated/types/candidateExplanation.ts
 1467384a70294a0cdc5bcb9263ed7590cf807b3587243a8ca6551f9890fccde2  lib/api-zod/src/generated/types/candidateExplanationConfidence.ts
 14e1217fe25d989723ec4c030abae858813142adbbfbe04b87db0b19e7d5e623  lib/api-zod/src/generated/types/audioReview.ts
@@ -110,6 +109,7 @@
 2b129347f918742bf006099f7f56a9be373250de2ecc3ad201297563e3d1f807  artifacts/zioncore-frequency-lab/src/components/ui/separator.tsx
 2b3dbe7a62f181c639e75f5c32ceca554f14d9fc2d15aae02a8fc685f0158800  artifacts/zioncore-frequency-lab/src/lib/discovery-memory.ts
 2b53a3a2f6e3b8b06b2a5b8db61df7f28e03f0e2e32df45997914c7aeab5addd  artifacts/zioncore-frequency-lab/public/online-tone-generator/index.html
+2c461c2a08751409f00c7c64e3528cede89690e045a3074efa1474f1b4c0ef2a  .github/workflows/zioncore-2nd-ci.yml
 2c800a0dee480ff29135e15448f19a4ebe4f8366675c5a97155c2666b545e6a6  pnpm-workspace.yaml
 2cf1fe298061f9a4ede4a60fa1f45ec2a3b9f29f05b465070746d24cc9ddd051  artifacts/api-server/src/lib/credit-ledger.test.ts
 2d2c2fa50a4d0e16311eb226bf61fa60a5a9d56e1fbc25b0ee2a47421d9edf84  artifacts/zioncore-frequency-lab/src/lib/hardware-instruments.ts
