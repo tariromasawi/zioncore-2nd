@@ -6,9 +6,10 @@
   repository `https://github.com/tariromasawi/zioncore-2nd`, branch `main`.
   The verified source commit before this report update is
   `9958dc821028c34188c08a3e5d76482eefaab1ce`.
-- The repository contains 604 tracked files. `SOURCE_INVENTORY.sha256` has
-  603 file checksums, all of which verified. The inventory file's SHA-256 is
-  `8366b0e32d6ec6460c48cb48cee48973f2132f2b71362d4bc4a1b2e0d0573be5`.
+- The repository contains 605 tracked files. `SOURCE_INVENTORY.sha256` has
+  604 file checksums, all of which verified; the manifest does not hash itself.
+- The Phase 1 source baseline and file-comparison findings are recorded in
+  `docs/ZIONCORE-2ND-PHASE-1-SOURCE-BASELINE.md`.
 - The repository's GitHub Actions validation workflow passed on the verified
   source commit: typecheck, web and API tests, Firebase emulator checks, and
   web/API production builds. Run:
