@@ -84,12 +84,13 @@ made while source was public.
    API responds locally; no independent production backend was deployed.
 5. **Live customer and owner journeys:** the temporary customer auth/history
    path passed, but the browser's persistent-session journey and owner access
-  have not been verified. A read-only Auth listing found zero users after test
-   cleanup, so no owner account or claim is available; none was assigned. The
-   supplied Replit preview resolves to the main Firebase project, not this app,
-   so it cannot be used to validate ZionCore 2nd browser behavior.
-6. **Mobile browser:** final iPhone Safari end-to-end verification remains
-   outstanding.
+   has been verified after a browser reload. A read-only Auth listing found zero
+   users after test cleanup, so no owner account or claim is available; none was
+   assigned. The supplied Replit preview resolves to the main Firebase project,
+   not this app, so it cannot be used to validate ZionCore 2nd browser behavior.
+6. **Mobile browser:** the nine key routes rendered at 402×874 Chromium
+   mobile-emulation width without horizontal overflow; final iPhone Safari
+   end-to-end verification remains outstanding.
 7. **Dependency advisories:** the standalone production dependency audit
    reported two moderate advisories; GitHub Dependabot reports three moderate
    alerts. No high or critical production dependency findings were reported.

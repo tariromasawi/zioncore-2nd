@@ -58,6 +58,10 @@ chat message.
 - A read-only Auth user listing after cleanup returned zero accounts. No owner
   account or owner claim exists in this project yet, and no privilege was
   assigned; owner access therefore remains unverified.
+- The Email/Password session persisted after a full browser reload. A
+  Chromium mobile-emulation smoke check at 402×874 rendered the landing page,
+  Missions, Astronomy, Bioacoustics, Voice V2, Access, Dashboard, History, and
+  Messages without horizontal overflow. This is not iPhone Safari verification.
 - The authorized domains are `zioncore-2nd-production.firebaseapp.com`,
   `zioncore-2nd-production.web.app`, and
   `c9c8012c-55d1-412b-af8f-e60455c226a4-00-3ernpyafogg1c-33xtb81r.spock.replit.dev`.

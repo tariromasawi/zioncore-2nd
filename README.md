@@ -73,7 +73,8 @@ Firebase CLI; the live config read returned HTTP 200 and the exact Replit
 development hostname is authorized. A disposable synthetic account completed
 live sign-up/sign-in; its Firestore observation create/read succeeded,
 cross-account read and wallet write were denied, and the account and observation
-were removed. No customer data or persistent test account remains. Google
+were removed. Its authenticated session also survived a browser reload. No
+customer data or persistent test account remains. Google
 sign-in still needs an owner-selected OAuth support email; Apple sign-in needs
 Apple Developer configuration. Owner access still needs verification; the
 project currently has zero Auth users and no owner claim. The supplied Replit
