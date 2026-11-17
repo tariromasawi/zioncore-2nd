@@ -69,8 +69,9 @@ live sign-up/sign-in; its Firestore observation create/read succeeded,
 cross-account read and wallet write were denied, and the account and observation
 were removed. No customer data or persistent test account remains. Google
 sign-in still needs an owner-selected OAuth support email; Apple sign-in needs
-Apple Developer configuration. App Check enforcement and customer/owner
-browser journeys still need verification. Cloud AI remains gated pending
+Apple Developer configuration. App Check enforcement and owner access still
+need verification; the project currently has zero Auth users and no owner
+claim. Cloud AI remains gated pending
 provider quota and usage-control confirmation. See
 `artifacts/zioncore-frequency-lab/FIREBASE_SETUP_ZIONCORE_2ND.md` for evidence.
 

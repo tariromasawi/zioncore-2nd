@@ -82,7 +82,8 @@ made while source was public.
    API responds locally; no independent production backend was deployed.
 5. **Live customer and owner journeys:** the temporary customer auth/history
    path passed, but the browser's persistent-session journey and owner access
-   have not been verified. No owner account or customer record remains.
+  have not been verified. A read-only Auth listing found zero users after test
+  cleanup, so no owner account or claim is available; none was assigned.
 6. **Mobile browser:** final iPhone Safari end-to-end verification remains
    outstanding.
 7. **Dependency advisories:** the standalone production dependency audit

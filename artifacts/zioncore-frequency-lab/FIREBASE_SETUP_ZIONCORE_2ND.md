@@ -55,6 +55,9 @@ chat message.
   and denied a client wallet write. The temporary observation and account were
   deleted successfully. This exercised authenticated rules while App Check
   enforcement was off; it did not verify enforced App Check.
+- A read-only Auth user listing after cleanup returned zero accounts. No owner
+  account or owner claim exists in this project yet, and no privilege was
+  assigned; owner access therefore remains unverified.
 - The authorized domains are `zioncore-2nd-production.firebaseapp.com`,
   `zioncore-2nd-production.web.app`, and
   `c9c8012c-55d1-412b-af8f-e60455c226a4-00-3ernpyafogg1c-33xtb81r.spock.replit.dev`.
