@@ -469,7 +469,6 @@ c21d62e9840c8b0f04131d3cc230ccef0dfd33cc2346e430a1369ae7a8655a9c  lib/api-zod/sr
 c26313c00ef668937a7965aefdf29e08c5a0deff8a7ba8ddd7bf2b81fa43092d  artifacts/zioncore-frequency-lab/src/lib/audio-analysis.worker.ts
 c2665fd484cd7408df465bbcfe51d228bb184e7a8be0a3031d8f239b5405a889  artifacts/zioncore-frequency-lab/src/components/device-connection-center.css
 c3787ffb045354e9f18e70d94890627caea94939a226e49c1e6cedee84a1e9e1  artifacts/zioncore-frequency-lab/src/components/ui/field.tsx
-c37a02e640fda3f228cbb5c66054f395612d52ca05b7701063f63948c96c886a  artifacts/zioncore-frequency-lab/src/App.tsx
 c3e7eb148e67c992e2e9a9a6dbcf596b576be2693a71e23c8c2c6eab74b4c8f7  artifacts/zioncore-frequency-lab/src/lib/stable-identity.test.ts
 c5a27cafe46d4b883a802398e88cf1009eaac70e80ad15907c0f36ac2d112028  artifacts/zioncore-frequency-lab/src/components/reference-tone-controls.tsx
 c60221f21f234fe10763bd033557f064effec2f4e508d14585c8a1b6cce19522  artifacts/zioncore-frequency-lab/src/pages/research-missions.css
@@ -573,6 +572,7 @@ ec51eab50e998af61ffca1280d986c49b8dd860f0ffb449ea89e9ef8b3b34f79  artifacts/zion
 ecac74b8f3a044ba7a9e4eb0bdbfdf48be92483a32d2c414c5078c9f38e1f369  artifacts/zioncore-frequency-lab/src/components/ui/slider.tsx
 ece98625fe043647b75e2cf5856ba8f7f7b5fe39a1bec38b344cf5e92742716d  artifacts/zioncore-frequency-lab/src/lib/celestial-experiment.ts
 ee11d0144ba011de83d96951f5c7cad95816e99f5c8e4dcc5cc67aeef5fa38e6  artifacts/zioncore-frequency-lab/src/components/matrix-rain.css
+ee59a2a43ae6195146d4ca9cff079e9bd59312561dcb907b05c166500365858a  artifacts/zioncore-frequency-lab/src/App.tsx
 ef2ae35ccab1252c4eee56e67e9f1b2499b5bbfb3ae39037d8d4be39915c272f  artifacts/zioncore-frequency-lab/src/components/ui/sheet.tsx
 efb860ccc4267e2bc6f83e48c2b6528b93a24230789727793e4c69614797f42e  artifacts/zioncore-frequency-lab/src/lib/sensor-adapter-contract.ts
 effb7d33b5df99004c9b1a840944516ca3ad65cbcd3ae2fcc717c505814ce039  lib/api-zod/src/index.ts

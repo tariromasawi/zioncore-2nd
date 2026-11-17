@@ -12,8 +12,6 @@ import {
   Wallet, Waves,
 } from 'lucide-react';
 import AccountAccess from '@/components/account-access';
-import EngineMonitor from '@/components/engine-monitor';
-import MatrixRain from '@/components/matrix-rain';
 import ReferenceToneControls from '@/components/reference-tone-controls';
 import ResonanceMatrixGallery, { ConstellationProvider, ConstellationInterlude, ConstellationMotionControl } from '@/components/resonance-matrix-gallery';
 import SeoRouteMetadata from '@/components/seo-route-metadata';
@@ -82,6 +80,8 @@ const ResonanceLibrary = lazy(() => import('@/components/resonance-library'));
 const ObservationBackupRestore = lazy(() => import('@/components/observation-backup-restore'));
 const SignalCardStudio = lazy(() => import('@/components/signal-card-studio'));
 const VoiceV2Page = lazy(() => import('@/pages/voice-v2'));
+const EngineMonitor = lazy(() => import('@/components/engine-monitor'));
+const MatrixRain = lazy(() => import('@/components/matrix-rain'));
 const ResearchMissionsPage = lazy(() => import('@/pages/research-missions'));
 const AstronomicalDataPage = lazy(() => import('@/pages/astronomical-data'));
 const BioacousticLibraryPage = lazy(() => import('@/pages/bioacoustic-library'));
@@ -700,7 +700,9 @@ function Shell({ children }: { children: ReactNode }) {
   }, [matrixEnabled]);
 
   return <div className="lab-shell">
-    <MatrixRain enabled={matrixEnabled} />
+    <Suspense fallback={null}>
+      <MatrixRain enabled={matrixEnabled} />
+    </Suspense>
     <header className="topbar">
       <div className="brand-toolbar">
         <Link href="/" className="brand-lockup" data-testid="link-home"><span className="brand-mark"><Waves size={19} strokeWidth={1.8} /></span><span><span className="brand-name">ZIONCORE</span><br /><span className="brand-sub">Frequency Lab</span></span></Link>
@@ -1575,7 +1577,9 @@ function LabPage() {
         </section>
       </div>
       {engine.error && <div className="section-grid"><div className="panel"><div className="section-body"><div className="eyebrow">Troubleshooting</div><p className="empty-inline">Make sure this page is served over HTTPS or localhost, choose an available input device in your browser, and allow microphone access. If another app has exclusive access, close it and retry.</p></div></div></div>}
-      <EngineMonitor snapshot={resonanceEngineSnapshot} />
+      <Suspense fallback={null}>
+        <EngineMonitor snapshot={resonanceEngineSnapshot} />
+      </Suspense>
       <div className="section-grid">
         <section className="panel">
           <div className="panel-head"><span className="panel-title">Measurement details</span><Activity size={16} color="#758681" /></div>
