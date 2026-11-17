@@ -53,6 +53,12 @@ own Firebase config and rules, but no standalone Hosting/API deployment
 configuration. This is a known packaging/deployment gap, not a claim that
 those workspace files are interchangeable with a standalone deployment.
 
+The application route table in `artifacts/zioncore-frequency-lab/src/App.tsx`
+registers `/`, `/access`, `/admin`, `/astronomy`, `/bioacoustics`, `/cards`,
+`/dashboard`, `/devices`, `/devotional`, `/discover`, `/exploration`,
+`/history`, `/history/:id`, `/history/device`, `/history/device/:id`,
+`/messages`, `/missions`, `/owner`, `/premium`, `/voice-v2` and `/wallet`.
+
 ## Verified feature source
 
 The selected full preview source registers customer-facing routes and pages
@@ -79,10 +85,13 @@ recovery of the master specification.
 ## Current external state
 
 * GitHub repository `tariromasawi/zioncore-2nd` is private; the full-source
-  validation workflow passes on the preserved `main` branch.
+  validation workflow passes on the preserved `main` branch. During this
+  session, the repository API was found to report public visibility; it was
+  restored to private. A source scan found no common credential patterns, but
+  visibility changes cannot revoke copies made while source was public.
 * Firestore read/rules and App Check were verified on
   `zioncore-2nd-production`; Authentication remains uninitialized.
 * No independent ZionCore 2nd application deployment was made. The prior
-  GitHub Pages configuration was removed, but its old README-only URL still
-  returned HTTP 200 at last verification; do not represent it as the app.
+  GitHub Pages configuration was removed and its README-only URL now returns
+  HTTP 404; it was not the application.
 * The original main ZionCore app and Firebase project were not changed.

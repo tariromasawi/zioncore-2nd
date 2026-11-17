@@ -52,9 +52,14 @@ A legacy GitHub Pages configuration on `main` at the repository root was
 already enabled and published a README/Jekyll page at
 `https://tariromasawi.github.io/zioncore-2nd/`; this was not the application.
 The Pages configuration has been removed, the repository is private, and the
-old deployment records are marked inactive. The URL still returned HTTP 200
-at the last check, so CDN removal has not been verified. Do not use that URL as
-the ZionCore 2nd application or claim that the stale page is fully purged.
+old deployment records are marked inactive. The URL returned HTTP 200 during
+propagation but returned HTTP 404 at the final check.
+
+During this session, GitHub reported the repository as public; it was restored
+to private. A source scan found no common service-account, private-key,
+Stripe/GitHub-token or Firebase-key patterns. The period of public visibility
+cannot be precisely established, and changing visibility cannot revoke copies
+made while source was public.
 
 ## Blocking launch items
 
