@@ -8,6 +8,8 @@ import type { SocialAuthProvider } from '@/lib/firebase-auth';
 
 type AccountAccessProps = {
   configured: boolean;
+  googleProviderConfigured: boolean;
+  appleProviderConfigured: boolean;
   projectMismatch: boolean;
   userEmail: string | null;
   membership: MembershipSnapshot | null;
@@ -23,6 +25,8 @@ type AccountAccessProps = {
 
 export function AccountAccess({
   configured,
+  googleProviderConfigured,
+  appleProviderConfigured,
   projectMismatch,
   userEmail,
   membership,
@@ -202,9 +206,11 @@ export function AccountAccess({
               </button>
               <p className="permission-note">Signing up is free and does not start a subscription. Microphone audio stays on this device; only observations you choose to save are added to your archive.</p>
             </form>
-            <div className="zc-provider-auth" role="group" aria-label="Other sign-in methods">
-              <div className="zc-provider-divider"><span>{mode === 'create' ? 'or join with' : 'or continue with'}</span></div>
-              <div className="zc-provider-buttons">
+            {(googleProviderConfigured || appleProviderConfigured) ? (
+              <div className="zc-provider-auth" role="group" aria-label="Other sign-in methods">
+                <div className="zc-provider-divider"><span>{mode === 'create' ? 'or join with' : 'or continue with'}</span></div>
+                <div className="zc-provider-buttons">
+                {googleProviderConfigured && (
                 <button
                   className="btn btn-subtle zc-provider-button"
                   type="button"
@@ -215,6 +221,8 @@ export function AccountAccess({
                   <span className="zc-provider-mark google" aria-hidden="true">G</span>
                   {mode === 'create' ? 'Join with Google' : 'Continue with Google'}
                 </button>
+                )}
+                {appleProviderConfigured && (
                 <button
                   className="btn btn-subtle zc-provider-button"
                   type="button"
@@ -225,11 +233,21 @@ export function AccountAccess({
                   <span className="zc-provider-mark apple" aria-hidden="true">A</span>
                   {mode === 'create' ? 'Join with Apple ID' : 'Continue with Apple ID'}
                 </button>
+                )}
               </div>
-              <p className="permission-note">
-                Use Google or Apple ID (including an iCloud account). Your first provider sign-in creates your ZionCore account.
+                <p className="permission-note">
+                  {googleProviderConfigured && appleProviderConfigured
+                    ? 'Your first provider sign-in creates your ZionCore account.'
+                    : googleProviderConfigured
+                      ? 'Your first Google sign-in creates your ZionCore account.'
+                      : 'Your first Apple ID sign-in creates your ZionCore account.'}
+                </p>
+              </div>
+            ) : (
+              <p className="permission-note" data-testid="status-social-auth-unavailable">
+                Email and password sign-in is available. Google and Apple are not enabled for this Firebase project yet.
               </p>
-            </div>
+            )}
           </>
         )}
       </div>

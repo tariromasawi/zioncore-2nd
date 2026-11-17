@@ -2,18 +2,19 @@
 
 ## Verified
 
-- The complete standalone preview source is preserved in the private GitHub
-  repository `https://github.com/tariromasawi/zioncore-2nd`, branch `main`.
-  The verified source commit before this report update is
-  `9958dc821028c34188c08a3e5d76482eefaab1ce`.
-- The repository contains 605 tracked files. `SOURCE_INVENTORY.sha256` has
-  604 file checksums, all of which verified; the manifest does not hash itself.
+- The preserved standalone source snapshot is in the private GitHub repository
+  `https://github.com/tariromasawi/zioncore-2nd`, branch
+  `zioncore-2nd/firebase-integrity-reviewed`, based on
+  `zioncore-2nd/phase2-genesis-foundation`. Original-workspace byte-for-byte
+  parity remains unverified.
+- The repository contains 606 tracked files. `SOURCE_INVENTORY.sha256` records
+  605 tracked-file checksums; CI now verifies the manifest after every push.
 - The Phase 1 source baseline and file-comparison findings are recorded in
   `docs/ZIONCORE-2ND-PHASE-1-SOURCE-BASELINE.md`.
-- The repository's GitHub Actions validation workflow passed on the verified
-  source commit: typecheck, web and API tests, Firebase emulator checks, and
-  web/API production builds. Run:
-  `https://github.com/tariromasawi/zioncore-2nd/actions/runs/44001360145`.
+- The GitHub Actions validation workflow runs typecheck, web and API tests,
+  Firebase emulator checks, and web/API production builds on this branch. It
+  passed on the latest pre-inventory-enforcement commit; subsequent pushes are
+  covered by the same workflow.
 - A clean production-mode build after deferring optional lab visuals measured
   196,474 gzip bytes for the initial JavaScript, below the 200,000-byte budget.
 - The complete preview application source is present in
@@ -27,10 +28,11 @@
   Firestore database in `europe-west2`.
 - Reviewed Firestore rules are deployed to the independent project. Rules
   emulator tests passed 14/14.
-- Development and production App Check token exchanges succeeded against
-  their respective Firebase App IDs and allowed hostnames. Enforcement remains
-  disabled.
-- Local checks passed: web unit tests 425/425; API unit tests 108/108; web and
+- Firestore App Check enforcement is enabled. The standalone browser SDK passed
+  authenticated own-record write/read with a valid development App Check token;
+  a matching authenticated REST read without App Check was rejected. The test
+  account and record were deleted. Identity Toolkit enforcement remains off.
+- Local checks passed: web unit tests 426/426; API unit tests 108/108; web and
   API typechecks; web and API production builds; wallet/ledger/Stripe emulator
   integration tests 20/20.
 - Firebase Authentication emulator tests passed 3/3 for registration,
@@ -63,32 +65,40 @@ made while source was public.
 
 ## Blocking launch items
 
-1. **Firebase Authentication:** the project has no Identity Toolkit config.
-   Read returned `404 NOT_FOUND: CONFIGURATION_NOT_FOUND`; initialization
-   returned `400 FAILED_PRECONDITION: BILLING_NOT_ENABLED`; a direct provider
-   configuration update also returned `404 CONFIGURATION_NOT_FOUND`. No
-   billing was activated. Email/password, Google, and Apple sign-in therefore
-   cannot be verified in this Firebase project.
-2. **Cloud AI:** authenticated AI calls are gated until Firebase Auth is
-   available and the project/provider cost and quota settings are explicitly
-   configured. No paid model request was made.
+1. **Firebase Authentication and history:** Email/Password is enabled and live
+   sign-up/sign-in passed using one disposable synthetic account, which was
+   deleted afterward. A valid own observation create/read passed; cross-account
+   read and wallet write were denied. No customer data or persistent test
+   account remains. Google sign-in needs an owner-selected OAuth support email;
+   Apple sign-in needs Apple Developer configuration. Firestore App Check
+   enforcement is verified; owner access remains unverified.
+2. **Cloud AI:** application requests remain gated until live authenticated
+   flows and project/provider cost and quota settings are verified. One minimal
+   text-only `gemini-3.8-flash` reachability check succeeded (7 prompt, 1 output,
+   118 thought tokens; no customer data); this did not verify the app's
+   authenticated AI route or quota enforcement.
 3. **Business payments:** code and emulator tests exist, but live Stripe
    catalogue, independent price IDs, webhook delivery, and customer checkout
    were not tested or changed.
 4. **Independent production API:** the source builds and the Replit preview
    API responds locally; no independent production backend was deployed.
-5. **Live customer and owner journeys:** not testable without configured
-   Authentication. No owner account or customer record was created.
-6. **Mobile browser:** final iPhone Safari end-to-end verification remains
-   outstanding.
+5. **Live customer and owner journeys:** the temporary customer auth/history
+   path passed, but the browser's persistent-session journey and owner access
+   has been verified after a browser reload. A read-only Auth listing found zero
+   users after test cleanup, so no owner account or claim is available; none was
+   assigned. The supplied Replit preview resolves to the main Firebase project,
+   not this app, so it cannot be used to validate ZionCore 2nd browser behavior.
+6. **Mobile browser:** the nine key routes rendered at 402×874 Chromium
+   mobile-emulation width without horizontal overflow; final iPhone Safari
+   end-to-end verification remains outstanding.
 7. **Dependency advisories:** the standalone production dependency audit
    reported two moderate advisories; GitHub Dependabot reports three moderate
    alerts. No high or critical production dependency findings were reported.
 
 ## Deployment boundary
 
-The independent Firestore rules and App Check provider registrations are
-configured, but no app deployment, App Check enforcement, billing activation,
-production Stripe operation, or change to the original ZionCore project was
-performed. Do not describe the system as launch-ready until the blockers above
-are resolved and the resulting live journeys are verified.
+The independent Firestore rules and App Check enforcement are configured, but
+no app deployment, billing activation, production Stripe operation, or change
+to the original ZionCore project was performed. Do not describe the system as
+launch-ready until the blockers above are resolved and the resulting live
+journeys are verified.

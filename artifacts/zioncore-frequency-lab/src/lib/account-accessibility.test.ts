@@ -7,6 +7,8 @@ import { FREE_MEMBERSHIP } from './membership-model';
 
 const base = {
   configured: true,
+  googleProviderConfigured: false,
+  appleProviderConfigured: false,
   projectMismatch: false,
   userEmail: null,
   membership: null,
@@ -37,6 +39,21 @@ test('account operations expose a persistent status region and busy form', () =>
   assert.match(busy, /Connecting your account/);
   assert.match(busy, /aria-busy="true"/);
   assert.match(busy, /disabled=""/);
+});
+
+test('disabled social providers are not shown as working sign-in actions', () => {
+  const emailOnly = renderToStaticMarkup(createElement(AccountAccess, base));
+  assert.match(emailOnly, /Email and password sign-in is available/);
+  assert.match(emailOnly, /Google and Apple are not enabled/);
+  assert.doesNotMatch(emailOnly, /data-testid="button-sign-in-google"/);
+  assert.doesNotMatch(emailOnly, /data-testid="button-sign-in-apple"/);
+
+  const googleEnabled = renderToStaticMarkup(createElement(AccountAccess, {
+    ...base,
+    googleProviderConfigured: true,
+  }));
+  assert.match(googleEnabled, /data-testid="button-sign-in-google"/);
+  assert.doesNotMatch(googleEnabled, /data-testid="button-sign-in-apple"/);
 });
 
 test('account and membership errors remain explicit rather than appearing as Free', () => {

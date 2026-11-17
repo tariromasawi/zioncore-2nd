@@ -36,6 +36,10 @@ const isDedicatedDevelopmentApp =
   firebaseConfig.appId === '1:225578874852:web:e9e67e76109a011219b9f1';
 const firebaseAuthServerConfigured =
   env.VITE_ZIONCORE_2ND_FIREBASE_AUTH_SERVER_CONFIGURED === 'true';
+export const firebaseGoogleAuthConfigured =
+  env.VITE_ZIONCORE_2ND_FIREBASE_GOOGLE_AUTH_CONFIGURED === 'true';
+export const firebaseAppleAuthConfigured =
+  env.VITE_ZIONCORE_2ND_FIREBASE_APPLE_AUTH_CONFIGURED === 'true';
 const firestoreClientAccessApproved =
   env.VITE_ZIONCORE_2ND_FIRESTORE_CLIENT_ACCESS_APPROVED === 'true';
 // This operator acknowledgement is not a substitute for a valid App Check token.
@@ -157,7 +161,7 @@ export function getFirebaseSetupMessage() {
     return `Firebase is not configured yet. Add ${configMissing.join(', ')} to the web app environment.`;
   }
   if (!firebaseAuthServerConfigured) {
-    return 'Firebase Authentication is not enabled for this project yet. Cloud sign-in and history remain paused until Authentication is initialized.';
+    return 'Firebase Authentication is not marked ready for this app environment. Cloud sign-in and history remain paused until its configuration is verified.';
   }
   if (!firebaseAppCheck) {
     return 'Firebase App Check is not initialized. Cloud history and AI requests remain paused until attestation is configured.';
@@ -180,7 +184,7 @@ export function getFirebaseAiSetupMessage() {
     return `Firebase is not configured yet. Add ${configMissing.join(', ')} to the web app environment.`;
   }
   if (!firebaseAuthServerConfigured) {
-    return 'Firebase Authentication is not enabled for this project yet. Cloud AI requests remain paused until Authentication is initialized.';
+    return 'Firebase Authentication is not marked ready for this app environment. Cloud AI requests remain paused until its configuration is verified.';
   }
   if (!firebaseAppCheck) {
     return 'Firebase App Check is not initialized. Cloud AI requests remain paused.';
