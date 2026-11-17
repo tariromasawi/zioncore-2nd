@@ -2,6 +2,19 @@
 
 ## Verified
 
+- The complete standalone preview source is preserved in the private GitHub
+  repository `https://github.com/tariromasawi/zioncore-2nd`, branch `main`.
+  The verified source commit before this report update is
+  `9958dc821028c34188c08a3e5d76482eefaab1ce`.
+- The repository contains 604 tracked files. `SOURCE_INVENTORY.sha256` has
+  603 file checksums, all of which verified. The inventory file's SHA-256 is
+  `8366b0e32d6ec6460c48cb48cee48973f2132f2b71362d4bc4a1b2e0d0573be5`.
+- The repository's GitHub Actions validation workflow passed on the verified
+  source commit: typecheck, web and API tests, Firebase emulator checks, and
+  web/API production builds. Run:
+  `https://github.com/tariromasawi/zioncore-2nd/actions/runs/44001360145`.
+- A clean production-mode build after deferring optional lab visuals measured
+  196,474 gzip bytes for the initial JavaScript, below the 200,000-byte budget.
 - The complete preview application source is present in
   `artifacts/zioncore-frequency-lab`, with the API in `artifacts/api-server`
   and shared packages in `lib/`.
@@ -29,6 +42,18 @@
 - Source uses the ZionCore 2nd Firebase project in runtime configuration; no
   main-project ID or main-project service-account variable was found in the
   selected runtime source.
+- The main ZionCore Firebase project and production application were not
+  changed.
+
+## Hosting safeguard
+
+A legacy GitHub Pages configuration on `main` at the repository root was
+already enabled and published a README/Jekyll page at
+`https://tariromasawi.github.io/zioncore-2nd/`; this was not the application.
+The Pages configuration has been removed, the repository is private, and the
+old deployment records are marked inactive. The URL still returned HTTP 200
+at the last check, so CDN removal has not been verified. Do not use that URL as
+the ZionCore 2nd application or claim that the stale page is fully purged.
 
 ## Blocking launch items
 
@@ -50,6 +75,9 @@
    Authentication. No owner account or customer record was created.
 6. **Mobile browser:** final iPhone Safari end-to-end verification remains
    outstanding.
+7. **Dependency advisories:** the standalone production dependency audit
+   reported two moderate advisories; GitHub Dependabot reports three moderate
+   alerts. No high or critical production dependency findings were reported.
 
 ## Deployment boundary
 
