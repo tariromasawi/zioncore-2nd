@@ -1,5 +1,8 @@
 # ZionCore recovery and customer-support runbook
 
+This standalone copy is for ZionCore 2nd. Its Firebase project is
+`zioncore-2nd-production`; never use the main ZionCore project or credentials.
+
 **Reviewed against source:** 2026-11-12
 
 **Production source baseline:** `ca6ff0b252155295315beae1f65fc8e71029ebc1`
@@ -19,7 +22,7 @@ Keep these data and rollback systems separate:
 | --- | --- | --- |
 | Application code | Git source and Replit project history | A code rollback does not restore external customer or billing data. |
 | Replit-managed data | The specific Replit database, if used by a service | Replit database recovery applies only to that database. ZionCore's customer history and wallet use Firebase; do not assume Replit database recovery covers them. |
-| Cloud observations and account records | Firebase project `ethereal-throne-b20e6` | Firebase backup/PITR configuration and restore permissions have not been verified. |
+| Cloud observations and account records | Firebase project `zioncore-2nd-production` | Firebase backup/PITR configuration and restore permissions have not been verified. |
 | Checkout, subscriptions, refunds, and disputes | Stripe | Stripe is authoritative for payment status. Do not reconstruct Stripe state by editing Firestore. |
 | Observation history export | The currently selected history scope (local browser or signed-in cloud account) | History JSON/CSV exports only the visible saved observations; it does not back up original recordings or full interpretation reports. |
 | Browser observation restore | The customer's browser storage | The backup import merges into local browser history only; it does not restore Firebase cloud history. |
@@ -77,7 +80,7 @@ For a customer reporting missing local history:
 
 ### Firebase cloud data
 
-The app targets Firebase project `ethereal-throne-b20e6`. The local rules file
+The app targets Firebase project `zioncore-2nd-production`. The local rules file
 is for emulator testing and integration; it must not be deployed as a
 project-wide replacement without inspecting and merging the deployed rules.
 The current workspace did not verify production backups or point-in-time

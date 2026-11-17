@@ -3,7 +3,7 @@
 ## Immutable source archive
 
 - **Source:** the file provided by the owner, preserved at
-  `artifacts/zioncore-2nd/src/content/genesis-declaration.txt`
+  `governance/genesis/GENESIS_SEED.original.txt`
 - **Version:** owner-provided original; no text revision applied
 - **SHA-256:** `f87c324da247443bcf6ac4c6b799241e871abc3dec8aaa69c921cd123943f95e`
 - **Size:** 172,275 bytes; 169,387 Unicode characters; 3,004 lines

@@ -3,8 +3,8 @@ import { test } from 'node:test';
 import { getFirebaseAppIdentityMismatch } from '@/lib/firebase-app-identity';
 
 const expected = {
-  projectId: 'ethereal-throne-b20e6',
-  appId: '1:123456789:web:production-app',
+  projectId: 'zioncore-2nd-production',
+  appId: '1:225578874852:web:df2ab8ae1735860719b9f1',
 };
 
 test('a missing named app can be initialized from the current environment', () => {
@@ -25,7 +25,7 @@ test('a same-project app with a different web App ID is rejected for App Check s
   assert.equal(
     getFirebaseAppIdentityMismatch({
       projectId: expected.projectId,
-      appId: '1:123456789:web:development-app',
+      appId: '1:225578874852:web:another-app',
     }, expected),
     'app-id',
   );

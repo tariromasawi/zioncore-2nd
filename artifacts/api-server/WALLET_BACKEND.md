@@ -7,10 +7,10 @@ token; callers cannot select another account.
 
 ## Server credential
 
-Configure `FIREBASE_SERVICE_ACCOUNT_JSON` through Replit Secrets for the API
-server's development and production environments. Its service account must
-belong to ZionCore's existing Firebase project. Do not put the credential in
-source control, browser configuration, or chat.
+Configure `ZIONCORE_2ND_BOOTSTRAP_SERVICE_ACCOUNT_JSON` through Replit Secrets
+for the standalone API server. Its service account must belong to
+`zioncore-2nd-production`. Do not reuse the main ZionCore credential or put this
+credential in source control, browser configuration, or chat.
 
 Until this secret is configured, wallet endpoints deliberately return `503`.
 The API server health endpoint remains available.

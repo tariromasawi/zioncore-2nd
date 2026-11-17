@@ -149,7 +149,7 @@ export async function runFirebaseDiagnostics(app: App) {
   const projectId = app.options.projectId ?? null;
   const email = getFirebaseAdminCredentialEmail();
   const credential = {
-    source: 'FIREBASE_SERVICE_ACCOUNT_JSON' as const,
+    source: 'ZIONCORE_2ND_BOOTSTRAP_SERVICE_ACCOUNT_JSON' as const,
     serviceAccountEmail: email,
     projectId,
     databaseId: defaultDatabaseId,

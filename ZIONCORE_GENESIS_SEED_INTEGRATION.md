@@ -1,8 +1,9 @@
 # ZionCore Genesis Seed — Integration Map
 
-**Status:** Both lab experiences now use the authenticated, credit-quoted server
-API for AI interpretations. Live production App Check token exchange and provider
-availability remain unverified.
+**Status:** The full lab client routes AI interpretation through the authenticated,
+credit-quoted server API. Development and production App Check token exchange
+have been verified; Firebase Authentication is not initialized, so authenticated
+AI requests remain unavailable until that external project blocker is resolved.
 
 ## Source and version
 
@@ -34,9 +35,9 @@ Traceable code points:
 | Authenticated, quoted, credit-reserved interpretation | `artifacts/api-server/src/routes/ai-interpretation.ts` |
 | Consented audio interpretation uses the same prompt builder | `artifacts/api-server/src/routes/ai-audio-interpretation.ts` |
 | Provider routing | `artifacts/api-server/src/lib/ai-provider-router.ts` |
-| ZionCore 2nd client uses server quote and interpretation APIs | `artifacts/zioncore-2nd/src/lib/ai-analysis.ts` |
-| ZionCore 2nd App Check and Firebase identity headers | `artifacts/zioncore-2nd/src/lib/firebase.ts` |
-| Quote preview, explicit credit confirmation, and no-cost cancellation | `artifacts/zioncore-2nd/src/components/analysis-panel.tsx` and `artifacts/zioncore-2nd/src/App.tsx` |
+| Full lab client uses server quote and interpretation APIs | `artifacts/zioncore-frequency-lab/src/lib/ai-analysis.ts` |
+| Full lab App Check and Firebase identity headers | `artifacts/zioncore-frequency-lab/src/lib/firebase.ts` |
+| Quote preview, explicit credit confirmation, and no-cost cancellation | `artifacts/zioncore-frequency-lab/src/components/analysis-panel.tsx` and `artifacts/zioncore-frequency-lab/src/App.tsx` |
 | Basic-measurement contract, with missing-feature boundaries | `lib/api-spec/openapi.yaml` and `lib/frequency-ai-contract/src/index.ts` |
 | Archive hash verification | `lib/frequency-ai-contract/src/genesis-seed.test.ts` |
 | Backend route verifies source hash reaches the provider prompt | `artifacts/api-server/src/routes/ai-interpretation.integration.test.ts` |
@@ -49,9 +50,9 @@ The runtime context keeps observations, interpretations, hypotheses, and faith
 reflection distinct, and does not override consent, privacy, security, or
 required owner approvals.
 
-## ZionCore 2nd interpretation path
+## Full ZionCore 2nd interpretation path
 
-`artifacts/zioncore-2nd/src/lib/ai-analysis.ts` sends only the selected,
+`artifacts/zioncore-frequency-lab/src/lib/ai-analysis.ts` sends only the selected,
 structured measurement values to the existing API. Firebase ID token and App
 Check headers are required. The user receives a server-signed credit quote and
 must confirm before a request begins. The backend applies the same Genesis
@@ -65,8 +66,9 @@ supplied and prohibits the model from inventing them. Integration tests cover
 the base-measurement path using the local Firestore emulator; no paid live
 request has been made.
 
-Production App Check token exchange, live model availability, quota behavior,
-and mobile-browser operation still require external verification before launch.
+Production App Check token exchange is verified. Firebase Authentication,
+live model availability, quota behavior, and mobile-browser operation still
+require external verification before launch.
 
 ## Scope and safeguards
 

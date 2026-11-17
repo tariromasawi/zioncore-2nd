@@ -79,7 +79,7 @@ test('admin summary response accepts aggregated fields and rejects unapproved ex
   const summary = {
     generatedAt: new Date().toISOString(),
     firebase: {
-      projectId: 'ethereal-throne-b20e6',
+      projectId: 'zioncore-2nd-production',
       identityVerification: 'active',
       firestoreStatus: 'connected',
       accountDirectoryStatus: 'connected',

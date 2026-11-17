@@ -1,5 +1,10 @@
 # Firebase setup notes
 
+> Historical setup notes for the original ZionCore Firebase project. The
+> standalone ZionCore 2nd application must use
+> [`FIREBASE_SETUP_ZIONCORE_2ND.md`](./FIREBASE_SETUP_ZIONCORE_2ND.md) and must
+> not use the project or credentials documented below.
+
 This code targets the existing Firebase project `ethereal-throne-b20e6`. It does
 not create a project, enable services, change console settings, or deploy rules.
 
