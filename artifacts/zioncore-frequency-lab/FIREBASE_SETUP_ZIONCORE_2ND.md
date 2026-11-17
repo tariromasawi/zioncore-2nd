@@ -47,8 +47,14 @@ chat message.
   the approved project values above.
 - Firebase Authentication is now initialized through the documented Firebase
   CLI auth-provider deployment. Email/Password is enabled; a read-only config
-  check returned HTTP 200 with `signIn.email.enabled=true`. No user accounts
-  were created and billing was not enabled.
+  check returned HTTP 200 with `signIn.email.enabled=true`. A temporary
+  synthetic account completed sign-up and password sign-in; it was deleted
+  after the check. No persistent test account remains and billing was not enabled.
+- With that account's ID token, live Firestore accepted creation and reading of
+  its own schema-valid frequency observation, denied a read under another UID,
+  and denied a client wallet write. The temporary observation and account were
+  deleted successfully. This exercised authenticated rules while App Check
+  enforcement was off; it did not verify enforced App Check.
 - The authorized domains are `zioncore-2nd-production.firebaseapp.com`,
   `zioncore-2nd-production.web.app`, and
   `c9c8012c-55d1-412b-af8f-e60455c226a4-00-3ernpyafogg1c-33xtb81r.spock.replit.dev`.
@@ -71,8 +77,9 @@ chat message.
   control.
 - Token exchange was verified in a browser on both the development preview
   hostname and the production `web.app` hostname; each returned a valid App
-  Check token for its matching Firebase App ID. App Check enforcement remains
-  disabled until authenticated customer flows are ready and tested.
+  Check token for its matching Firebase App ID. Authenticated Firestore rules
+  now pass with a temporary account, but the client SDK's Firestore request with
+  enforcement enabled has not been verified; App Check enforcement remains off.
 - The local Firestore emulator rules suite passed 14/14 tests; the API wallet,
   credit-ledger, Stripe-fulfilment, and interpretation integration suite passed
   20/20 tests.

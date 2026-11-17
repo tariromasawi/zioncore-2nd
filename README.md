@@ -64,11 +64,14 @@ App Check enforcement remains disabled pending authenticated-flow verification.
 
 Firebase Authentication is now initialized with Email/Password through the
 Firebase CLI; the live config read returned HTTP 200 and the exact Replit
-development hostname is authorized. No billing was enabled and no customer
-accounts were created. Google sign-in still needs a real OAuth support email;
-Apple sign-in needs Apple Developer configuration. Authenticated browser flows
-and cloud-history access still require end-to-end verification. Cloud AI remains
-gated pending provider quota and usage-control confirmation. See
+development hostname is authorized. A disposable synthetic account completed
+live sign-up/sign-in; its Firestore observation create/read succeeded,
+cross-account read and wallet write were denied, and the account and observation
+were removed. No customer data or persistent test account remains. Google
+sign-in still needs an owner-selected OAuth support email; Apple sign-in needs
+Apple Developer configuration. App Check enforcement and customer/owner
+browser journeys still need verification. Cloud AI remains gated pending
+provider quota and usage-control confirmation. See
 `artifacts/zioncore-frequency-lab/FIREBASE_SETUP_ZIONCORE_2ND.md` for evidence.
 
 ## Release boundary

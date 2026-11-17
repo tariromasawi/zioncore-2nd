@@ -63,13 +63,13 @@ made while source was public.
 
 ## Blocking launch items
 
-1. **Firebase Authentication:** standard Email/Password is now enabled through
-   the Firebase CLI, and a read-only config check returned HTTP 200. The exact
-   Replit development hostname was added to the authorized domains. No billing
-   was activated and no user accounts were created. Google sign-in remains
-   blocked until a public OAuth support email is selected; Apple sign-in needs
-   Apple Developer configuration. Live sign-in and authenticated history still
-   need end-to-end verification.
+1. **Firebase Authentication and history:** Email/Password is enabled and live
+   sign-up/sign-in passed using one disposable synthetic account, which was
+   deleted afterward. A valid own observation create/read passed; cross-account
+   read and wallet write were denied. No customer data or persistent test
+   account remains. Google sign-in needs an owner-selected OAuth support email;
+   Apple sign-in needs Apple Developer configuration. App Check enforcement and
+   owner access remain unverified.
 2. **Cloud AI:** application requests remain gated until live authenticated
    flows and project/provider cost and quota settings are verified. One minimal
    text-only `gemini-3.8-flash` reachability check succeeded (7 prompt, 1 output,
@@ -80,9 +80,9 @@ made while source was public.
    were not tested or changed.
 4. **Independent production API:** the source builds and the Replit preview
    API responds locally; no independent production backend was deployed.
-5. **Live customer and owner journeys:** Email/Password is configured, but no
-   live test account or customer record was created; customer and owner
-   journeys have not been verified end to end.
+5. **Live customer and owner journeys:** the temporary customer auth/history
+   path passed, but the browser's persistent-session journey and owner access
+   have not been verified. No owner account or customer record remains.
 6. **Mobile browser:** final iPhone Safari end-to-end verification remains
    outstanding.
 7. **Dependency advisories:** the standalone production dependency audit
