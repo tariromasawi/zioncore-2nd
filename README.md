@@ -39,7 +39,12 @@ credential in a server-side secret store as documented in
 
 ## Validation
 
+After staging source changes, refresh the tracked-file checksum manifest with
+`pnpm run inventory:update`. CI runs `pnpm run inventory:check` and fails if the
+manifest is stale.
+
 ```sh
+pnpm run inventory:check
 pnpm run typecheck
 pnpm --filter @workspace/zioncore-frequency-lab run test:unit
 pnpm --filter @workspace/api-server run test:unit

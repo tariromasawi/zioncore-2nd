@@ -2,18 +2,19 @@
 
 ## Verified
 
-- The complete standalone preview source is preserved in the private GitHub
-  repository `https://github.com/tariromasawi/zioncore-2nd`, branch `main`.
-  The verified source commit before this report update is
-  `9958dc821028c34188c08a3e5d76482eefaab1ce`.
-- The repository contains 605 tracked files. `SOURCE_INVENTORY.sha256` has
-  604 file checksums, all of which verified; the manifest does not hash itself.
+- The preserved standalone source snapshot is in the private GitHub repository
+  `https://github.com/tariromasawi/zioncore-2nd`, branch
+  `zioncore-2nd/firebase-auth-email`, based on
+  `zioncore-2nd/phase2-genesis-foundation`. Original-workspace byte-for-byte
+  parity remains unverified.
+- The repository contains 606 tracked files. `SOURCE_INVENTORY.sha256` records
+  605 tracked-file checksums; CI now verifies the manifest after every push.
 - The Phase 1 source baseline and file-comparison findings are recorded in
   `docs/ZIONCORE-2ND-PHASE-1-SOURCE-BASELINE.md`.
-- The repository's GitHub Actions validation workflow passed on the verified
-  source commit: typecheck, web and API tests, Firebase emulator checks, and
-  web/API production builds. Run:
-  `https://github.com/tariromasawi/zioncore-2nd/actions/runs/44001360145`.
+- The GitHub Actions validation workflow runs typecheck, web and API tests,
+  Firebase emulator checks, and web/API production builds on this branch. It
+  passed on the latest pre-inventory-enforcement commit; subsequent pushes are
+  covered by the same workflow.
 - A clean production-mode build after deferring optional lab visuals measured
   196,474 gzip bytes for the initial JavaScript, below the 200,000-byte budget.
 - The complete preview application source is present in
@@ -30,7 +31,7 @@
 - Development and production App Check token exchanges succeeded against
   their respective Firebase App IDs and allowed hostnames. Enforcement remains
   disabled.
-- Local checks passed: web unit tests 425/425; API unit tests 108/108; web and
+- Local checks passed: web unit tests 426/426; API unit tests 108/108; web and
   API typechecks; web and API production builds; wallet/ledger/Stripe emulator
   integration tests 20/20.
 - Firebase Authentication emulator tests passed 3/3 for registration,
