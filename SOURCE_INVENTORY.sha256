@@ -109,7 +109,6 @@
 2b129347f918742bf006099f7f56a9be373250de2ecc3ad201297563e3d1f807  artifacts/zioncore-frequency-lab/src/components/ui/separator.tsx
 2b3dbe7a62f181c639e75f5c32ceca554f14d9fc2d15aae02a8fc685f0158800  artifacts/zioncore-frequency-lab/src/lib/discovery-memory.ts
 2b53a3a2f6e3b8b06b2a5b8db61df7f28e03f0e2e32df45997914c7aeab5addd  artifacts/zioncore-frequency-lab/public/online-tone-generator/index.html
-2c461c2a08751409f00c7c64e3528cede89690e045a3074efa1474f1b4c0ef2a  .github/workflows/zioncore-2nd-ci.yml
 2c800a0dee480ff29135e15448f19a4ebe4f8366675c5a97155c2666b545e6a6  pnpm-workspace.yaml
 2cf1fe298061f9a4ede4a60fa1f45ec2a3b9f29f05b465070746d24cc9ddd051  artifacts/api-server/src/lib/credit-ledger.test.ts
 2d2c2fa50a4d0e16311eb226bf61fa60a5a9d56e1fbc25b0ee2a47421d9edf84  artifacts/zioncore-frequency-lab/src/lib/hardware-instruments.ts
@@ -332,6 +331,7 @@
 88b213bd22f838e0ae6a9b72c64111ef2c5c4f5dfc26815eece7ba3c01e8bf04  lib/api-zod/src/generated/types/aIInterpretationContentSignalFamily.ts
 896b195ea51735ea6b42a56880a2f77c3745582e56505a9bf4ec336a1928d264  artifacts/zioncore-frequency-lab/src/lib/customer-service-recommendations.test.ts
 89878a82b833d0baecf36071efef587cf01e5131ac409f29b95bbce576b3ef0e  artifacts/api-server/src/lib/billing-origin.ts
+898c6d9e48c50430f06a5a52d1be1ad0c312f11f1bb97fdecc2b11ec4b8bbadc  .github/workflows/zioncore-2nd-ci.yml
 8aa56b8f465b8005b8b3c92a5d5ad733839af4ec34421667e558396f0cbd5ea9  lib/api-zod/src/generated/types/adminCurrencyTotals.ts
 8aad23f2988b3da2b5cba3bf3a79461273ac4986924760c532950e445787f4aa  artifacts/zioncore-frequency-lab/src/components/bioacoustic-evidence-panel.tsx
 8b2968041b16a02f85eb789bef3f67b6153b22ce3c990d59b1cd453155612d99  artifacts/api-server/src/lib/credit-ledger.ts
