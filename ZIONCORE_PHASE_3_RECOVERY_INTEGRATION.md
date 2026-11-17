@@ -115,3 +115,45 @@ and either grant the required editor/source access through Replit's sharing
 mechanism or make the original source available in this authorized workspace.
 Until then, this recovery branch must remain a snapshot-based integration, not
 be represented as complete original-system recovery.
+
+## Phase 5 functional-integration audit — 2026-11-17
+
+The route count in this report refers to the main Frequency Lab artifact, not
+the independent `zioncore-2nd` artifact:
+
+| Artifact | Registered routes | Result |
+| --- | ---: | --- |
+| `artifacts/zioncore-frequency-lab` | 21 | Includes Missions, Astronomy, Bioacoustics, Access, Messages, Voice V2, Dashboard, Admin/Owner, and other routes. |
+| `artifacts/zioncore-2nd` | 7 | `/`, `/exploration`, `/genesis`, `/history`, `/history/device`, `/history/device/:id`, `/history/:id`. The requested feature routes are not registered in this artifact. |
+
+The second artifact's existing lab, local history, and cloud-history code is
+present. Its baseline Firebase client targeted the main project and reused the
+default Firebase app, while AI calls used the workspace `/api` service. That
+was not safe for an independently configured second system. On the isolated
+`zioncore-2nd/phase5-functional-integration` branch, the client now uses
+project-namespaced environment variables for `zioncore-2nd-production`,
+creates a separately named Firebase app, and refuses to call AI unless an
+independent HTTPS API origin is configured. It explicitly rejects the main
+`zioncore.replit.app` API origin. Development-only public Firebase web
+configuration has been set; Firestore client access remains false, and no App
+Check key or independent API origin has been configured.
+
+Verification on the Phase 5 branch:
+
+| Check | Result |
+| --- | --- |
+| Frozen dependency install | Passed |
+| Workspace typecheck | Passed |
+| ZionCore 2nd unit tests | 35 passed |
+| ZionCore 2nd Vite build | Passed; chunk-size and dependency-comment warnings remain |
+| Browser end-to-end verification | Not run; this artifact has no independent registered preview workflow |
+| Firebase Auth/App Check/Firestore client flow | Blocked by missing Auth configuration, App Check provider key, and rules approval |
+| Independent AI backend | Not configured; client now fails closed instead of calling the main API |
+| Production deployment or GitHub push | Not performed |
+
+Phase 5 is **not complete**. The independent artifact still lacks the feature
+routes present in the separate Frequency Lab artifact, and no verified
+standalone API currently serves its AI requests. Moving those modules into the
+second app requires the original source or an explicitly approved
+compatibility-preserving integration; the main Firebase/API and billing
+services must not be silently reused.
