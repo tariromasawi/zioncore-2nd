@@ -42,6 +42,7 @@ jobs:
           pnpm --filter @workspace/api-server run test:unit
       - name: Run Firebase emulator tests
         run: |
+          pnpm --filter @workspace/scripts run test:genesis
           pnpm --filter @workspace/zioncore-frequency-lab run test:auth
           pnpm --filter @workspace/zioncore-frequency-lab run test:rules
           pnpm --filter @workspace/api-server run test:wallet

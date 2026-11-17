@@ -118,12 +118,11 @@ token-protected preview URL.
    before any production rules change.
 8. Keep App Check enforcement disabled until valid token exchange has been
    confirmed in a normal browser. Do not log, print, or store App Check tokens.
-9. Preserve `artifacts/zioncore-2nd/src/content/genesis-declaration.txt`
-   byte-for-byte. Its SHA-256 is
+9. Preserve `governance/genesis/GENESIS_SEED.original.txt` byte-for-byte. Its SHA-256 is
    `f87c324da247443bcf6ac4c6b799241e871abc3dec8aaa69c921cd123943f95e`.
    Keep it available as the founder's archival declaration and render it as
    plain text, never as executable HTML. AI requests should receive only the
-   compact, privacy-bounded Genesis context and relevant selected material,
+    compact, privacy-bounded Genesis context and curated source-informed modules,
    not the entire archive on every request. The declaration does not override
    evidence, user consent, privacy, or platform safety boundaries.
 
@@ -234,7 +233,7 @@ copy generated build output, emulator logs, or TypeScript build caches.
 - [ai-analysis.test.ts](artifacts/zioncore-2nd/src/lib/ai-analysis.test.ts)
 - [genesis-context.ts](artifacts/zioncore-2nd/src/lib/genesis-context.ts)
 - [genesis-foundation.test.ts](artifacts/zioncore-2nd/src/lib/genesis-foundation.test.ts)
-- [genesis-declaration.txt — original founder-provided Genesis seed](artifacts/zioncore-2nd/src/content/genesis-declaration.txt)
+- [GENESIS_SEED.original.txt — original founder-provided Genesis seed](governance/genesis/GENESIS_SEED.original.txt)
 - [celestial-experiment.ts](artifacts/zioncore-2nd/src/lib/celestial-experiment.ts)
 - [celestial-experiment.test.ts](artifacts/zioncore-2nd/src/lib/celestial-experiment.test.ts)
 - [cloud-observations.ts](artifacts/zioncore-2nd/src/lib/cloud-observations.ts)

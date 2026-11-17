@@ -8,6 +8,7 @@ import pinoHttp from 'pino-http';
 import { deleteApp, initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import {
+  ZIONCORE_GENESIS_VERSION,
   ZIONCORE_GENESIS_SOURCE_SHA256,
   type AnalysisMeasurement,
 } from '@workspace/frequency-ai-contract';
@@ -173,10 +174,10 @@ const routeLedger = {
 };
 
 function providerFactory({ uid, prompt }: { uid: string; prompt: string }) {
-  assert.match(
-    prompt,
-    new RegExp(`ZIONCORE GENESIS OPERATIONAL CONTEXT v1\\.3\\.0[\\s\\S]*${ZIONCORE_GENESIS_SOURCE_SHA256}`),
-    'the authenticated server route must pass Genesis provenance to the provider',
+  assert.ok(
+    prompt.includes(`ZIONCORE GENESIS OPERATIONAL CONTEXT v${ZIONCORE_GENESIS_VERSION}`)
+      && prompt.includes(ZIONCORE_GENESIS_SOURCE_SHA256),
+    'the authenticated server route must pass current Genesis provenance to the provider',
   );
   if (baseMeasurementUids.has(uid)) {
     assert.match(prompt, /No derived signalFeatures were supplied/);

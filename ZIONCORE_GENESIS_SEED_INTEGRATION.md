@@ -9,10 +9,11 @@ AI requests remain unavailable until that external project blocker is resolved.
 
 The immutable source and correction record are documented in
 [`ZIONCORE_GENESIS_SEED_CHANGELOG.md`](ZIONCORE_GENESIS_SEED_CHANGELOG.md).
-The runtime operational-context implementation is version `1.3.0` and includes
+The runtime operational-context implementation is version `1.3.1` and includes
 the exact source SHA-256 in its provider prompt. Each request is capped at 8,000
 Genesis-context characters; it receives a compact operational policy and
-relevant excerpts, not the full source archive.
+curated source-informed modules, not the full source archive or claimed
+verbatim excerpts.
 
 ## Primary server-side flow
 
@@ -39,11 +40,11 @@ Traceable code points:
 | Full lab App Check and Firebase identity headers | `artifacts/zioncore-frequency-lab/src/lib/firebase.ts` |
 | Quote preview, explicit credit confirmation, and no-cost cancellation | `artifacts/zioncore-frequency-lab/src/components/analysis-panel.tsx` and `artifacts/zioncore-frequency-lab/src/App.tsx` |
 | Basic-measurement contract, with missing-feature boundaries | `lib/api-spec/openapi.yaml` and `lib/frequency-ai-contract/src/index.ts` |
-| Archive hash verification | `lib/frequency-ai-contract/src/genesis-seed.test.ts` |
+| Archive hash verification, run in CI and release checks | `lib/frequency-ai-contract/src/genesis-seed.test.ts` and `lib/frequency-ai-contract/package.json` |
 | Backend route verifies source hash reaches the provider prompt | `artifacts/api-server/src/routes/ai-interpretation.integration.test.ts` |
 
 The backend does not send the full 169,387-character archive on every request.
-It sends a source-linked policy and selected excerpts within the 8,000-character
+It sends a source-informed policy and curated modules within the 8,000-character
 context limit. This avoids unnecessary provider cost and unrelated family
 details. The archive remains complete and available to authorized source review.
 The runtime context keeps observations, interpretations, hypotheses, and faith

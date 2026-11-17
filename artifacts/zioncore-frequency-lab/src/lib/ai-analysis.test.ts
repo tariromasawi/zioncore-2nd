@@ -38,7 +38,7 @@ test('gateway failures retain job recovery while explicit server failure decisio
 });
 import {
   buildGenesisSeedContext,
-  countGenesisSeedCharacters,
+  countGenesisOperationalContextCharacters,
 } from '../../../../lib/frequency-ai-contract/src/genesis-seed';
 
 const measurement: AnalysisMeasurement = {
@@ -119,20 +119,20 @@ test('analysis prompt contains only structured values, not audio or notes', () =
 
 test('shared interpretation prompt includes source-linked Genesis context without routine family details', () => {
   const prompt = buildSharedAnalysisPrompt(measurement, true, 'A user-selected reflection context.');
-  assert.match(prompt, /ZIONCORE GENESIS OPERATIONAL CONTEXT v1\.3\.0/);
+  assert.match(prompt, /ZIONCORE GENESIS OPERATIONAL CONTEXT v1\.3\.1/);
   assert.match(prompt, /f87c324da247443bcf6ac4c6b799241e871abc3dec8aaa69c921cd123943f95e/);
   assert.doesNotMatch(prompt, /Tarry Kupakwashe|Karumekangu|Corinna Masawi/);
 });
 
-test('the full Genesis reference corpus stays separate from a bounded relevant prompt', () => {
-  const seedCharacters = countGenesisSeedCharacters();
-  assert.ok(seedCharacters >= 50_000, `Expected a complete local reference corpus; got ${seedCharacters}.`);
+test('curated Genesis operational modules stay separate from a bounded provider prompt', () => {
+  const contextCharacters = countGenesisOperationalContextCharacters();
+  assert.ok(contextCharacters >= 50_000, `Expected the curated operational modules; got ${contextCharacters}.`);
 
   const personalized = buildGenesisSeedContext(
     true,
     'Please explore plant bioacoustics, faith, and a prayer reflection.',
   );
-  assert.match(personalized, /ZIONCORE GENESIS OPERATIONAL CONTEXT v1\.3\.0/);
+  assert.match(personalized, /ZIONCORE GENESIS OPERATIONAL CONTEXT v1\.3\.1/);
   assert.match(personalized, /f87c324da247443bcf6ac4c6b799241e871abc3dec8aaa69c921cd123943f95e/);
   assert.match(personalized, /HRH Saint Tariro Masawi, The Anointed Commander/);
   assert.match(personalized, /Additional · Theology/);

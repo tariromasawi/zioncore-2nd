@@ -2,11 +2,11 @@
  * Version of the bounded, server-oriented operational context derived from the
  * immutable founder-provided archive. This is not a replacement for that text.
  */
-export const ZIONCORE_GENESIS_VERSION = '1.3.0';
+export const ZIONCORE_GENESIS_VERSION = '1.3.1';
 export const ZIONCORE_GENESIS_SOURCE_SHA256 =
   'f87c324da247443bcf6ac4c6b799241e871abc3dec8aaa69c921cd123943f95e';
 export const ZIONCORE_GENESIS_SOURCE_PATH =
-  'artifacts/zioncore-2nd/src/content/genesis-declaration.txt';
+  'governance/genesis/GENESIS_SEED.original.txt';
 
 type CoreSection = { id: string; title: string; text: string; runtime: string };
 type DomainSection = {
@@ -605,7 +605,7 @@ export function buildGenesisSeedContext(includeFaithReflection: boolean, listene
     .sort((left, right) => right.score - left.score)
     .slice(0, includeFaithReflection ? 3 : 2);
 
-  const sourceReference = `ZIONCORE GENESIS OPERATIONAL CONTEXT v${ZIONCORE_GENESIS_VERSION}. The immutable original is preserved at ${ZIONCORE_GENESIS_SOURCE_PATH} (SHA-256 ${ZIONCORE_GENESIS_SOURCE_SHA256}). This request uses a bounded operational policy and selected source-linked excerpts; the full archive remains unchanged and is not copied into every provider request.`;
+  const sourceReference = `ZIONCORE GENESIS OPERATIONAL CONTEXT v${ZIONCORE_GENESIS_VERSION}. The immutable original is preserved at ${ZIONCORE_GENESIS_SOURCE_PATH} (SHA-256 ${ZIONCORE_GENESIS_SOURCE_SHA256}). This request uses a bounded operational policy and curated source-informed modules, not a verbatim copy of the archive; the full source remains unchanged and is not copied into every provider request.`;
   const runtimeDomains = genesisDomainSections
     .filter(section => baselineIds.has(section.id))
     .map(section => truncateReference(section.runtime, 280))

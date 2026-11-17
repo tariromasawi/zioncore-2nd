@@ -12,6 +12,7 @@ export function processCheckExitCode(result: { status: number | null; error?: un
 
 export const releaseChecks: ReleaseCheck[] = [
   { id: 'workspace-types', args: ['run', 'typecheck'] },
+  { id: 'genesis-archive-integrity', args: ['--filter', '@workspace/scripts', 'test:genesis'] },
   { id: 'frontend-unit', args: ['--filter', '@workspace/zioncore-frequency-lab', 'test:unit'] },
   { id: 'api-unit', args: ['--filter', '@workspace/api-server', 'test:unit'] },
   { id: 'tooling-unit', args: ['--filter', '@workspace/scripts', 'test'] },

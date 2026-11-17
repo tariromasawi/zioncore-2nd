@@ -22,6 +22,7 @@ the owner’s explicit approval and a separate versioned implementation copy.
 | `1.1.0` | Existing compact operational-context modules found in the source. They were not the complete original archive and must not be described as such. |
 | `1.2.0` | Adds explicit source-path and SHA-256 provenance, identifies the runtime content as bounded derived context, and corrects the prior prompt’s misleading claim that its derived character count was the full source-seed length. The original archive is unchanged. |
 | `1.3.0` | Bounds each provider request to 8,000 characters, includes only a compact operational policy and relevant excerpts, avoids sending unrelated family details, and routes ZionCore 2nd AI through the authenticated, quoted backend service. The original archive is unchanged. |
+| `1.3.1` | Points provenance at the canonical archive included in the standalone repository, clarifies that runtime modules are curated and source-informed rather than verbatim excerpts, and adds the archive-integrity test to the release workflow. The original archive is unchanged. |
 
 ### Exact implementation corrections in 1.2.0
 
@@ -57,3 +58,15 @@ paraphrase, or substitute for the owner-provided source file.
 
 These changes affect runtime context, request validation, and tests only. The
 owner-provided archive remains byte-for-byte unchanged.
+
+### Exact implementation corrections in 1.3.1
+
+1. Corrected the runtime source path from a separate artifact directory omitted
+   by the standalone export to the canonical immutable archive in
+   `governance/genesis/GENESIS_SEED.original.txt`.
+2. Clarified that the bounded operational modules are curated and
+   source-informed, not literal excerpts dynamically read from the archive.
+3. Added an explicit shared-package test command and release/CI step that reads
+   the canonical archive and verifies its SHA-256, byte length, and declaration.
+
+The original archive remains unchanged.

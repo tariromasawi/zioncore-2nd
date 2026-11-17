@@ -12,10 +12,11 @@ import {
 test('the ZionCore seed uses the seven-stage product cycle and names current boundaries', () => {
   const context = buildGenesisSeedContext(false, '');
 
-  assert.equal(ZIONCORE_GENESIS_VERSION, '1.3.0');
+  assert.equal(ZIONCORE_GENESIS_VERSION, '1.3.1');
+  assert.equal(ZIONCORE_GENESIS_SOURCE_PATH, 'governance/genesis/GENESIS_SEED.original.txt');
   assert.match(context, new RegExp(ZIONCORE_GENESIS_SOURCE_SHA256));
-  assert.match(context, /bounded operational policy and selected source-linked excerpts/i);
-  assert.match(context, /full archive remains unchanged/i);
+  assert.match(context, /bounded operational policy and curated source-informed modules/i);
+  assert.match(context, /full source remains unchanged/i);
   assert.match(context, /RECEIVE → DECODE → INTERPRET → LEARN → ENCODE → TRANSMIT → OBSERVE/);
   assert.match(context, /HRH Saint Tariro Masawi, The Anointed Commander/);
   assert.match(context, /customer data does not train models/i);

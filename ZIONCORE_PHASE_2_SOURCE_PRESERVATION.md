@@ -78,12 +78,14 @@ each page’s production or end-to-end readiness.
 
 The uploaded original remains byte-identical at the preserved archive path with
 SHA-256 `f87c324da247443bcf6ac4c6b799241e871abc3dec8aaa69c921cd123943f95e`.
-Runtime context version 1.3.0 is source-linked and bounded to 8,000 characters.
+Runtime context version 1.3.1 is curated, source-informed, and bounded to 8,000
+characters; it is not presented as a verbatim copy of the immutable archive.
 Both lab AI clients now use the authenticated server route, App Check token,
 existing signed credit quote, explicit user confirmation, and idempotent
 recovery. A base measurement can omit advanced features; the backend explicitly
-instructs the model not to infer those missing values. Unit and emulator route
-tests cover this source-level integration. Live production token exchange,
+instructs the model not to infer those missing values. CI now verifies the
+canonical archive hash and runs emulator route tests for this source-level
+integration. Live production token exchange,
 provider availability, quota behavior, and mobile-browser verification remain
 unverified. See `ZIONCORE_GENESIS_SEED_INTEGRATION.md` and
 `ZIONCORE_GENESIS_SEED_CHANGELOG.md`.
