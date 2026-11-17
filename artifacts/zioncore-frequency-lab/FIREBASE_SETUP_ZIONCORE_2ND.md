@@ -63,6 +63,11 @@ chat message.
   `c9c8012c-55d1-412b-af8f-e60455c226a4-00-3ernpyafogg1c-33xtb81r.spock.replit.dev`.
   The production and development Replit environments now mark Firebase
   Authentication as ready.
+- Browser inspection of the supplied Replit preview hostname showed that the
+  page currently initializes Firebase project `ethereal-throne-b20e6`, not
+  `zioncore-2nd-production`. It is therefore not the ZionCore 2nd frontend and
+  was not used for a ZionCore 2nd browser sign-in or Firestore test. The main
+  project was not changed.
 - Google sign-in remains disabled. A provider setup attempt without a support
   email returned `400 INVALID_GOOGLE_SIGN_IN_BRAND_CONFIG` with:
   `Both public display name and customer support email must be provided for Google Sign-In brand configuration, or neither if the project already has the OAuth Brand set.`
