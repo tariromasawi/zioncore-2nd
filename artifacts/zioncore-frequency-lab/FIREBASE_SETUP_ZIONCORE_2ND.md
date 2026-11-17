@@ -83,11 +83,19 @@ chat message.
   Hosting domains. A development-only debug token is registered for the
   development app and stored in Replit's Development environment, not source
   control.
-- Token exchange was verified in a browser on both the development preview
-  hostname and the production `web.app` hostname; each returned a valid App
-  Check token for its matching Firebase App ID. Authenticated Firestore rules
-  now pass with a temporary account, but the client SDK's Firestore request with
-  enforcement enabled has not been verified; App Check enforcement remains off.
+- In an isolated browser running this standalone source with the development
+  App Check debug provider, Firebase returned a token for the matching
+  development App ID. The client completed sign-up/sign-in and its own
+  Firestore observation write/read after Firestore App Check enforcement was
+  enabled. A direct REST read carrying the same ID token and App Check token
+  succeeded; the same request without an App Check token was rejected. The
+  temporary account and observation were removed, and a read-only check found
+  zero remaining Auth users.
+- Firestore App Check enforcement is `ENFORCED`. Identity Toolkit App Check
+  enforcement remains `OFF`; it was not enabled because Auth enforcement was
+  not part of the verified client test. The development and production
+  reCAPTCHA Enterprise keys remain separate; production-host client verification
+  remains outstanding.
 - The local Firestore emulator rules suite passed 14/14 tests; the API wallet,
   credit-ledger, Stripe-fulfilment, and interpretation integration suite passed
   20/20 tests.

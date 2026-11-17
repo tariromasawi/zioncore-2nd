@@ -63,9 +63,10 @@ changes. It does not deploy production.
 The independent project is `zioncore-2nd-production` (`225578874852`). Its
 default Firestore database is Native mode in `europe-west2`; reviewed rules are
 deployed. Read-only Admin access succeeded using the project-specific service
-identity. Development and production App Check token exchange have both been
-verified, with distinct web app IDs and hostname-restricted reCAPTCHA keys.
-App Check enforcement remains disabled pending authenticated-flow verification.
+identity. Development and production App Check configuration use distinct web
+app IDs and hostname-restricted reCAPTCHA keys. Firestore App Check enforcement
+is enabled and passed a standalone browser client test; Authentication App
+Check enforcement remains off.
 
 Firebase Authentication is now initialized with Email/Password through the
 Firebase CLI; the live config read returned HTTP 200 and the exact Replit
@@ -74,10 +75,10 @@ live sign-up/sign-in; its Firestore observation create/read succeeded,
 cross-account read and wallet write were denied, and the account and observation
 were removed. No customer data or persistent test account remains. Google
 sign-in still needs an owner-selected OAuth support email; Apple sign-in needs
-Apple Developer configuration. App Check enforcement and owner access still
-need verification; the project currently has zero Auth users and no owner
-claim. The supplied Replit preview currently loads the main Firebase project,
-not this independent app, so it cannot verify the ZionCore 2nd browser flow.
+Apple Developer configuration. Owner access still needs verification; the
+project currently has zero Auth users and no owner claim. The supplied Replit
+preview currently loads the main Firebase project, not this independent app,
+so it cannot verify the ZionCore 2nd browser flow.
 Cloud AI remains gated pending
 provider quota and usage-control confirmation. See
 `artifacts/zioncore-frequency-lab/FIREBASE_SETUP_ZIONCORE_2ND.md` for evidence.

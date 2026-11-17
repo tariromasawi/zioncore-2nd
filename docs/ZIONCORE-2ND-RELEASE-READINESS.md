@@ -28,9 +28,10 @@
   Firestore database in `europe-west2`.
 - Reviewed Firestore rules are deployed to the independent project. Rules
   emulator tests passed 14/14.
-- Development and production App Check token exchanges succeeded against
-  their respective Firebase App IDs and allowed hostnames. Enforcement remains
-  disabled.
+- Firestore App Check enforcement is enabled. The standalone browser SDK passed
+  authenticated own-record write/read with a valid development App Check token;
+  a matching authenticated REST read without App Check was rejected. The test
+  account and record were deleted. Identity Toolkit enforcement remains off.
 - Local checks passed: web unit tests 426/426; API unit tests 108/108; web and
   API typechecks; web and API production builds; wallet/ledger/Stripe emulator
   integration tests 20/20.
@@ -69,8 +70,8 @@ made while source was public.
    deleted afterward. A valid own observation create/read passed; cross-account
    read and wallet write were denied. No customer data or persistent test
    account remains. Google sign-in needs an owner-selected OAuth support email;
-   Apple sign-in needs Apple Developer configuration. App Check enforcement and
-   owner access remain unverified.
+   Apple sign-in needs Apple Developer configuration. Firestore App Check
+   enforcement is verified; owner access remains unverified.
 2. **Cloud AI:** application requests remain gated until live authenticated
    flows and project/provider cost and quota settings are verified. One minimal
    text-only `gemini-3.8-flash` reachability check succeeded (7 prompt, 1 output,
@@ -95,8 +96,8 @@ made while source was public.
 
 ## Deployment boundary
 
-The independent Firestore rules and App Check provider registrations are
-configured, but no app deployment, App Check enforcement, billing activation,
-production Stripe operation, or change to the original ZionCore project was
-performed. Do not describe the system as launch-ready until the blockers above
-are resolved and the resulting live journeys are verified.
+The independent Firestore rules and App Check enforcement are configured, but
+no app deployment, billing activation, production Stripe operation, or change
+to the original ZionCore project was performed. Do not describe the system as
+launch-ready until the blockers above are resolved and the resulting live
+journeys are verified.
