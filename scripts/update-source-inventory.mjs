@@ -19,13 +19,15 @@ const trackedPaths = execFileSync("git", ["ls-files", "-z"], {
   .filter((path) => path && path !== inventoryPath)
   .sort();
 
-const expected = trackedPaths
+const entries = trackedPaths
   .map((path) => {
     const digest = createHash("sha256")
       .update(readFileSync(path))
       .digest("hex");
     return `${digest}  ${path}`;
-  })
+  });
+
+const expected = entries
   .join("\n")
   .concat("\n");
 
