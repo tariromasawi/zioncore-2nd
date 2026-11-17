@@ -62,18 +62,20 @@ identity. Development and production App Check token exchange have both been
 verified, with distinct web app IDs and hostname-restricted reCAPTCHA keys.
 App Check enforcement remains disabled pending authenticated-flow verification.
 
-Firebase Authentication is not initialized: the provider configuration lookup
-returned `404 CONFIGURATION_NOT_FOUND`, and initialization returned
-`400 FAILED_PRECONDITION: BILLING_NOT_ENABLED`. No billing was enabled and no
-customer accounts were created. Consequently, cloud history, authenticated AI,
-and account journeys are not launch-ready. See
-`artifacts/zioncore-frequency-lab/FIREBASE_SETUP_ZIONCORE_2ND.md` for evidence
-and the exact remaining setup requirement.
+Firebase Authentication is now initialized with Email/Password through the
+Firebase CLI; the live config read returned HTTP 200 and the exact Replit
+development hostname is authorized. No billing was enabled and no customer
+accounts were created. Google sign-in still needs a real OAuth support email;
+Apple sign-in needs Apple Developer configuration. Authenticated browser flows
+and cloud-history access still require end-to-end verification. Cloud AI remains
+gated pending provider quota and usage-control confirmation. See
+`artifacts/zioncore-frequency-lab/FIREBASE_SETUP_ZIONCORE_2ND.md` for evidence.
 
 ## Release boundary
 
 This source is buildable, but it is **not yet a complete business launch**.
-Firebase Authentication, live AI provider availability/quota, production
-payment configuration, an independently deployed API runtime, and final
-mobile-browser verification remain outstanding. The original ZionCore
-production project and its Firebase resources were not modified.
+Google and Apple sign-in, authenticated browser journeys, live AI
+availability/quota, production payment configuration, an independently
+deployed API runtime, and final mobile-browser verification remain outstanding.
+The original ZionCore production project and its Firebase resources were not
+modified.

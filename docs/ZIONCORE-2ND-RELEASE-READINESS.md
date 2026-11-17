@@ -63,22 +63,24 @@ made while source was public.
 
 ## Blocking launch items
 
-1. **Firebase Authentication:** the project has no Identity Toolkit config.
-   Read returned `404 NOT_FOUND: CONFIGURATION_NOT_FOUND`; initialization
-   returned `400 FAILED_PRECONDITION: BILLING_NOT_ENABLED`; a direct provider
-   configuration update also returned `404 CONFIGURATION_NOT_FOUND`. No
-   billing was activated. Email/password, Google, and Apple sign-in therefore
-   cannot be verified in this Firebase project.
-2. **Cloud AI:** authenticated AI calls are gated until Firebase Auth is
-   available and the project/provider cost and quota settings are explicitly
-   configured. No paid model request was made.
+1. **Firebase Authentication:** standard Email/Password is now enabled through
+   the Firebase CLI, and a read-only config check returned HTTP 200. The exact
+   Replit development hostname was added to the authorized domains. No billing
+   was activated and no user accounts were created. Google sign-in remains
+   blocked until a public OAuth support email is selected; Apple sign-in needs
+   Apple Developer configuration. Live sign-in and authenticated history still
+   need end-to-end verification.
+2. **Cloud AI:** authenticated AI calls remain gated until live authenticated
+   flows and project/provider cost and quota settings are verified. No paid
+   model request was made.
 3. **Business payments:** code and emulator tests exist, but live Stripe
    catalogue, independent price IDs, webhook delivery, and customer checkout
    were not tested or changed.
 4. **Independent production API:** the source builds and the Replit preview
    API responds locally; no independent production backend was deployed.
-5. **Live customer and owner journeys:** not testable without configured
-   Authentication. No owner account or customer record was created.
+5. **Live customer and owner journeys:** Email/Password is configured, but no
+   live test account or customer record was created; customer and owner
+   journeys have not been verified end to end.
 6. **Mobile browser:** final iPhone Safari end-to-end verification remains
    outstanding.
 7. **Dependency advisories:** the standalone production dependency audit

@@ -35,7 +35,9 @@ import { readMembership, type MembershipSnapshot } from '@/lib/membership';
 import {
   firebaseAuth,
   firebaseAuthConfigured,
+  firebaseAppleAuthConfigured,
   firebaseCloudReady,
+  firebaseGoogleAuthConfigured,
   firebaseProjectMismatch,
   getFirebaseIdentityHeaders,
   getFirebaseSetupMessage,
@@ -986,6 +988,8 @@ function AccountSection() {
 
   return <AccountAccess
     configured={firebaseAuthConfigured}
+    googleProviderConfigured={firebaseGoogleAuthConfigured}
+    appleProviderConfigured={firebaseAppleAuthConfigured}
     projectMismatch={firebaseProjectMismatch}
     userEmail={user?.email ?? null}
     membership={membershipForUser}

@@ -45,11 +45,24 @@ chat message.
 - A read-only Firebase Management API request successfully returned this web
   app's public configuration, and the returned project ID and App ID matched
   the approved project values above.
-- Firebase Authentication is not initialized. The Identity Toolkit config
-  lookup returned `404 NOT_FOUND: CONFIGURATION_NOT_FOUND`; initialization
-  returned `400 FAILED_PRECONDITION: BILLING_NOT_ENABLED`, and a direct
-  provider-config update returned `404 NOT_FOUND: CONFIGURATION_NOT_FOUND`.
-  Billing was not enabled and no user accounts were created.
+- Firebase Authentication is now initialized through the documented Firebase
+  CLI auth-provider deployment. Email/Password is enabled; a read-only config
+  check returned HTTP 200 with `signIn.email.enabled=true`. No user accounts
+  were created and billing was not enabled.
+- The authorized domains are `zioncore-2nd-production.firebaseapp.com`,
+  `zioncore-2nd-production.web.app`, and
+  `c9c8012c-55d1-412b-af8f-e60455c226a4-00-3ernpyafogg1c-33xtb81r.spock.replit.dev`.
+  The production and development Replit environments now mark Firebase
+  Authentication as ready.
+- Google sign-in remains disabled. A provider setup attempt without a support
+  email returned `400 INVALID_GOOGLE_SIGN_IN_BRAND_CONFIG` with:
+  `Both public display name and customer support email must be provided for Google Sign-In brand configuration, or neither if the project already has the OAuth Brand set.`
+  An owner-selected customer-support email is required to configure the OAuth
+  brand. Apple sign-in remains disabled pending Apple Developer provider
+  configuration. The account UI shows only providers that are actually enabled.
+- An earlier direct Identity Platform initialization call returned
+  `400 FAILED_PRECONDITION: BILLING_NOT_ENABLED`; the Firebase CLI path
+  initialized standard Firebase Authentication without enabling billing.
 - Separate reCAPTCHA Enterprise App Check keys are registered for the
   development and production web apps. The development key is restricted to the
   Replit preview hostname; the production key is restricted to the Firebase
@@ -65,8 +78,8 @@ chat message.
   20/20 tests.
 - Storage is not enabled because the current application processes audio in the
   browser and stores only bounded observation metadata in Firestore.
-- Cloud AI remains gated while Firebase Authentication is unavailable and
-  project/provider quotas and usage controls remain unconfirmed.
+- Cloud AI remains gated until project/provider quotas and usage controls are
+  confirmed. No live model request was made.
 
 ## Data and access boundaries
 
