@@ -70,9 +70,11 @@ made while source was public.
    blocked until a public OAuth support email is selected; Apple sign-in needs
    Apple Developer configuration. Live sign-in and authenticated history still
    need end-to-end verification.
-2. **Cloud AI:** authenticated AI calls remain gated until live authenticated
-   flows and project/provider cost and quota settings are verified. No paid
-   model request was made.
+2. **Cloud AI:** application requests remain gated until live authenticated
+   flows and project/provider cost and quota settings are verified. One minimal
+   text-only `gemini-3.8-flash` reachability check succeeded (7 prompt, 1 output,
+   118 thought tokens; no customer data); this did not verify the app's
+   authenticated AI route or quota enforcement.
 3. **Business payments:** code and emulator tests exist, but live Stripe
    catalogue, independent price IDs, webhook delivery, and customer checkout
    were not tested or changed.

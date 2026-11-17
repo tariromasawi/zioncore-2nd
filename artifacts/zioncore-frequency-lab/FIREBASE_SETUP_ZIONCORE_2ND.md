@@ -78,8 +78,10 @@ chat message.
   20/20 tests.
 - Storage is not enabled because the current application processes audio in the
   browser and stores only bounded observation metadata in Firestore.
-- Cloud AI remains gated until project/provider quotas and usage controls are
-  confirmed. No live model request was made.
+- A minimal text-only provider check on `gemini-3.8-flash` succeeded with
+  `STOP`; usage reported 7 prompt, 1 output, and 118 thought tokens. It contained
+  no customer data and verified provider reachability only. Application AI
+  remains gated until project/provider quotas and usage controls are confirmed.
 
 ## Data and access boundaries
 
