@@ -40,16 +40,16 @@ credential in a server-side secret store as documented in
 ## Validation
 
 ```sh
-pnpm --filter @workspace/zioncore-frequency-lab run typecheck
-pnpm --filter @workspace/api-server run typecheck
+pnpm run typecheck
 pnpm --filter @workspace/zioncore-frequency-lab run test:unit
 pnpm --filter @workspace/api-server run test:unit
-pnpm --filter @workspace/zioncore-frequency-lab run build
+PORT=3000 BASE_PATH=/ pnpm --filter @workspace/zioncore-frequency-lab run build
 pnpm --filter @workspace/api-server run build
 ```
 
-Firestore rules and wallet integration tests use the Firebase emulators; see
-the `test:rules` and `test:wallet` scripts in the package manifests.
+Authentication, Firestore rules and wallet integration tests use the Firebase
+emulators; see the `test:auth`, `test:rules` and `test:wallet` scripts in the
+package manifests. Emulator passes do not establish live-project readiness.
 GitHub Actions runs the unit, type, emulator and build checks on proposed
 changes. It does not deploy production.
 

@@ -35,19 +35,21 @@ jobs:
           java-version: "21"
       - name: Install locked dependencies
         run: pnpm install --frozen-lockfile
-      - name: Typecheck web and API
-        run: |
-          pnpm --filter @workspace/zioncore-frequency-lab run typecheck
-          pnpm --filter @workspace/api-server run typecheck
+      - name: Typecheck shared libraries, web and API
+        run: pnpm run typecheck
       - name: Run web and API unit tests
         run: |
           pnpm --filter @workspace/zioncore-frequency-lab run test:unit
           pnpm --filter @workspace/api-server run test:unit
       - name: Run Firebase emulator tests
         run: |
+          pnpm --filter @workspace/zioncore-frequency-lab run test:auth
           pnpm --filter @workspace/zioncore-frequency-lab run test:rules
           pnpm --filter @workspace/api-server run test:wallet
       - name: Build web and API
+        env:
+          PORT: "3000"
+          BASE_PATH: /
         run: |
           pnpm --filter @workspace/zioncore-frequency-lab run build
           pnpm --filter @workspace/api-server run build

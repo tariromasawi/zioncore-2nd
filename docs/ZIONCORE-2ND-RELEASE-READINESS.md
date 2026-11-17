@@ -19,6 +19,10 @@
 - Local checks passed: web unit tests 425/425; API unit tests 108/108; web and
   API typechecks; web and API production builds; wallet/ledger/Stripe emulator
   integration tests 20/20.
+- Firebase Authentication emulator tests passed 3/3 for registration,
+  sign-out, sign-in, invalid-password handling, duplicate email rejection and
+  server-side token verification. This does not prove the live project's Auth
+  service is initialized.
 - Local route checks returned 200 for `/`, `/missions`, `/astronomy`,
   `/bioacoustics`, `/voice-v2`, `/access`, `/dashboard`, and `/messages`.
   Unauthenticated wallet and owner endpoints returned 401 as intended.
