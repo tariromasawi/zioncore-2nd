@@ -7,14 +7,14 @@
   `zioncore-2nd/firebase-integrity-reviewed`, based on
   `zioncore-2nd/phase2-genesis-foundation`. Original-workspace byte-for-byte
   parity remains unverified.
-- The repository contains 606 tracked files. `SOURCE_INVENTORY.sha256` records
-  605 tracked-file checksums; CI now verifies the manifest after every push.
+- The repository contains 607 tracked files. `SOURCE_INVENTORY.sha256` records
+  606 tracked-file checksums; CI verifies the manifest after every push.
 - The Phase 1 source baseline and file-comparison findings are recorded in
   `docs/ZIONCORE-2ND-PHASE-1-SOURCE-BASELINE.md`.
 - The GitHub Actions validation workflow runs typecheck, web and API tests,
-  Firebase emulator checks, and web/API production builds on this branch. It
-  passed on the latest pre-inventory-enforcement commit; subsequent pushes are
-  covered by the same workflow.
+  Firebase emulator checks, source-inventory verification, and web/API
+  production builds. The latest branch commit passed run
+  `44321869186`.
 - A clean production-mode build after deferring optional lab visuals measured
   196,474 gzip bytes for the initial JavaScript, below the 200,000-byte budget.
 - The complete preview application source is present in
@@ -37,10 +37,11 @@
   integration tests 20/20.
 - Firebase Authentication emulator tests passed 3/3 for registration,
   sign-out, sign-in, invalid-password handling, duplicate email rejection and
-  server-side token verification. This does not prove the live project's Auth
-  service is initialized.
-- Local route checks returned 200 for `/`, `/missions`, `/astronomy`,
-  `/bioacoustics`, `/voice-v2`, `/access`, `/dashboard`, and `/messages`.
+  server-side token verification. Live Email/Password sign-up/sign-in and
+  session restoration after reload also passed with a disposable account.
+- The standalone browser rendered content at `/`, `/missions`, `/astronomy`,
+  `/bioacoustics`, `/voice-v2`, `/access`, `/dashboard`, `/history`, and
+  `/messages` in a simulated 402×874 viewport without horizontal overflow.
   Unauthenticated wallet and owner endpoints returned 401 as intended.
 - Source uses the ZionCore 2nd Firebase project in runtime configuration; no
   main-project ID or main-project service-account variable was found in the
@@ -82,18 +83,21 @@ made while source was public.
    were not tested or changed.
 4. **Independent production API:** the source builds and the Replit preview
    API responds locally; no independent production backend was deployed.
-5. **Live customer and owner journeys:** the temporary customer auth/history
-   path passed, but the browser's persistent-session journey and owner access
-   has been verified after a browser reload. A read-only Auth listing found zero
-   users after test cleanup, so no owner account or claim is available; none was
-   assigned. The supplied Replit preview resolves to the main Firebase project,
-   not this app, so it cannot be used to validate ZionCore 2nd browser behavior.
+5. **Live customer and owner journeys:** Email/Password sign-in, persistent
+   session after reload, and temporary customer history access passed. Owner
+   access remains unverified. A read-only Auth listing found zero users after
+   cleanup, so no owner account or claim is available; none was assigned. The
+   supplied Replit preview resolves to the main Firebase project, not this app,
+   so it cannot validate the standalone Firebase client.
 6. **Mobile browser:** the nine key routes rendered at 402×874 Chromium
    mobile-emulation width without horizontal overflow; final iPhone Safari
    end-to-end verification remains outstanding.
-7. **Dependency advisories:** the standalone production dependency audit
-   reported two moderate advisories; GitHub Dependabot reports three moderate
-   alerts. No high or critical production dependency findings were reported.
+7. **Dependency advisories:** the scoped full dependency audit reports one high
+   and one moderate development-tool advisory, plus two moderate production
+   transitive advisories (`glob` and `minimatch`). The high `picomatch` advisory
+   currently has no patched release in the registry result. The Firebase CLI
+   was updated to 15.36.0; the advisory remains open. Do not claim a clean
+   dependency audit.
 
 ## Deployment boundary
 
